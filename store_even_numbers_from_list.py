@@ -28,7 +28,7 @@ def filter_method_even_numbers(function, iterable):
 # calling Method 2
 function = lambda x:x%2==0
 result_even_list = filter_method_even_numbers(function=function,
-										                          iterable=even_odd_list						
-										                         )
+					      iterable=even_odd_list						
+					     )
 print('=' * 37)
 print("Result from Method 2 is: {}".format(result_even_list))
