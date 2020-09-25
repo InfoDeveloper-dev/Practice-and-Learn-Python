@@ -6,6 +6,7 @@ Method 2: Using Filter Method
 Method 3: If the below list is fixed means values does not change \
 we can go for method 3
 Method 4: Using Map Python Built In Function
+Method 5: Class based approach
 """
 
 even_odd_list = [0,1,2,3,4,5,6]
@@ -66,3 +67,24 @@ evenList_filtered =[each for each in evenList if each!=None]
 print("Getting all element of Map List is: {}".format(list(evenList_filtered)
 						          )
                                                           )
+print('='*37)
+"""
+Method 5
+class will be created and function for filtering will be created \
+Object will be created which can access the functions of the class
+"""
+class EvenList:
+	# initialising the variabl list_of_values from outside
+	# self is temporary placeholder
+	def __init__(self, list_of_values):
+		self.list_of_values = list_of_values
+	
+	def even_numbers(self):
+		self.even =[each for each in self.list_of_values if each%2==0]
+		return self.even
+
+# creating the object of the class
+even_values = EvenList(even_odd_list)
+print("Even values using class method is: {}".format(even_values.even_numbers()
+						    )
+                                                    ) 		
