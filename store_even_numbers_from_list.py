@@ -3,6 +3,9 @@ This program is about storing even numbers from the list
 Various Methods will be discussed here
 Method 1: Iterating through the loop and applying logic
 Method 2: Using Filter Method
+Method 3: If the below list is fixed means values does not change \
+we can go for method 3
+Method 4: Using Map Python Built In Function
 """
 
 even_odd_list = [0,1,2,3,4,5,6]
@@ -28,7 +31,38 @@ def filter_method_even_numbers(function, iterable):
 # calling Method 2
 function = lambda x:x%2==0
 result_even_list = filter_method_even_numbers(function=function,
-					      iterable=even_odd_list						
+					     iterable=even_odd_list						
 					     )
 print('=' * 37)
 print("Result from Method 2 is: {}".format(result_even_list))
+"""
+Method 3
+Let us understand this it is called list slicing
+list[start:stop:step]
+start is 0
+stop is end element
+step size is 2 which means stepping 1 element
+"""
+print('=' * 37)
+even_values = even_odd_list[0:None:2]
+print("Result from method 3 is: {}".format(even_values))
+"""
+Method 4
+Map takes two input
+Input 1: Function
+Input 2: Iterable Object such as list
+"""
+def map_function(element):
+	try:
+		if element%2==0:
+			return element
+		else: 
+			raise Exception("Number {} is not even".format(element))	
+	except Exception as message:
+		print(message)
+
+evenList = list(map(map_function, even_odd_list))
+evenList_filtered =[each for each in evenList if each!=None]
+print("Getting all element of Map List is: {}".format(list(evenList_filtered)
+						          )
+                                                          )
