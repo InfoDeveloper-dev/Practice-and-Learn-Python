@@ -87,4 +87,27 @@ class EvenList:
 even_values = EvenList(even_odd_list)
 print("Even values using class method is: {}".format(even_values.even_numbers()
 						    )
-                                                    ) 		
+                                                    ) 
+"""
+Method 6: Class based using slot class level member
+"""
+class _EvenOdd:
+
+    __slot__ = '_list_elements'
+
+    def __init__(self, list_elements):
+
+        self._list_elements = list_elements
+
+    def even_odd(self):
+        self._list_elements = [
+                               i for i in self._list_elements if i % 2 == 0
+                              ]
+
+
+object1 = _EvenOdd([0, 1, 2, 3])
+object1.even_odd()                 
+value = object1._list_elements
+print(
+      "Even numbers in the list are {}".format(value)
+)
